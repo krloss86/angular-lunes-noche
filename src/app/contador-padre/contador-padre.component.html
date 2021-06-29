@@ -1,0 +1,4 @@
+<app-contador [contadorHijo1]="valorContador1" ></app-contador>
+<app-contador2 [contadorHijo2]="valorContador2" 
+    (message)="parentMethod($event)"
+    ></app-contador2>

@@ -1,0 +1,13 @@
+<p>master works!</p>
+<div *ngIf="flag">
+    mostrando valor porque flag es true
+</div>
+
+<ul>
+    <li *ngFor="let nombre of nombres">
+        <!-- pipe -->
+        {{nombre | uppercase}}
+    </li>    
+</ul>
+
+<app-details></app-details>

@@ -1,0 +1,124 @@
+<!--template diven-->
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form #formulario="ngForm" novalidate (ngSubmit)="submitForm(formulario)">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input 
+                        id="exampleInputEmail1" 
+                        name="email"
+                        #email="ngModel"
+                        ngModel
+                        required
+                        [class.is-invalid]="email.touched && email.invalid"
+                        [class.is-valid]="email.valid"
+                        type="email" 
+                        class="form-control" 
+                        aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input 
+                        id="password"
+                        name="password"
+                        #password="ngModel"
+                        ngModel
+                        required
+                        minlength="3"
+                        maxlength="8"
+                        [ngClass]="{'is-invalid' : password.touched && password.invalid}"
+                        type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+
+                <div class="form-group">
+                    <label for="pais">Pais</label>
+                    <select 
+                        id="pais"
+                        name="pais"
+                        #pais="ngModel"
+                        ngModel
+                        required
+                        class="form-control" >
+                        <option [ngValue]="null" disabled>Seleccione un pais</option>
+                        <option *ngFor="let pais of paises" 
+                            [value]="pais">
+                            {{pais}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input"
+                            type="checkbox"
+                            name="tc"
+                            id="tc"
+                            #tc
+                            ngModel
+                            required
+                        >
+                        <label>Aceptar T y C</label>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="exampleRadios1"
+                      value="{{valorRadio}}"
+                      checked
+                      name="exampleRadios"
+                      ngModel
+                      required
+                      >
+                    <label class="form-check-label" for="exampleRadios1">
+                      Marcar
+                    </label>
+                </div>
+
+                <button 
+                    [ngClass]="{'btn-success': formulario.valid, 'btn-primary': formulario.invalid}"
+                    [disabled]="formulario.invalid"
+                    type="submit" class="btn">
+                    Enviar
+                </button>
+                <button    
+                    [disabled]="formulario.pristine"
+                    type="reset" class="btn btn-secondary">
+                    Limpiar todo
+                </button>
+            </form>
+        </div>
+        <div class="col-6">
+            <b>Atributos del formulario</b>
+            <ul>
+                <li>
+                    values: {{formulario.value | json}}
+                </li>     
+                <li>
+                    valid: {{formulario.valid}}
+                </li>  
+                <li>
+                    invalid: {{formulario.invalid}}                    
+                </li>
+                <li>
+                    submited: {{formulario.submitted}}
+                </li> 
+                <li>
+                    pristine: {{formulario.pristine}}
+                </li>        
+                <li>
+                    dirty: {{formulario.dirty}}
+                </li>
+                <li>
+                    toucher: {{formulario.touched}}   
+                </li>
+                <li>
+                    errors: {{formulario.errors | json}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
