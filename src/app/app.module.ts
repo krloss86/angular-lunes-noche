@@ -23,6 +23,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RecomendacionComponent } from './recomendacion/recomendacion.component';
 import { SaldoComponent } from './saldo/saldo.component';
 import { TopbarComponent } from './topbar/topbar.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './alert/alert.component';
+import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +47,16 @@ import { TopbarComponent } from './topbar/topbar.component';
     NavbarComponent,
     RecomendacionComponent,
     SaldoComponent,
-    TopbarComponent
+    TopbarComponent,
+    AlertComponent,
+    NoEncontradoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     //2-forma: defino los @Injectables
