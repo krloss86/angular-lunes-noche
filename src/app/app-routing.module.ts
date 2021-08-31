@@ -1,21 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
 import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
-import { ProfileServiceResolve } from './profile.service';
 
 const routes: Routes = [
   {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'home', 
-    component: DashboardComponent, 
-    resolve:
-    {
-      claveDeRetorno: ProfileServiceResolve    
-    }    
+    path: '', pathMatch: 'full', redirectTo: '/home'
   },
   {
     path: '**', component: NoEncontradoComponent
@@ -23,7 +12,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
