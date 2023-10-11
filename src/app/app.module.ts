@@ -10,6 +10,7 @@ import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { EjemplosModule } from './ejemplos/ejemplos.module';
 import { LoginModule } from './login/login.module';
+import { CommonsModule } from './commons/commons.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { LoginModule } from './login/login.module';
     EjemplosModule,
     DashboardModule,
     LoginModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonsModule
   ],
   providers: [
     //2-forma: defino los @Injectables
